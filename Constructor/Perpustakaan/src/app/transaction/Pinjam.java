@@ -23,9 +23,11 @@ public class Pinjam{
   }
 
   public void setKodeTrans() {
+
     String modelWaktu = "dd-MM-yyyy hh:mm:ss";
     SimpleDateFormat formatTime = new SimpleDateFormat(modelWaktu);
     String waktu = formatTime.format(this.waktuPeminjaman);
+    this.kodeTrans = this.peminjam.getIdMember()+ " " + waktu;
   }
 
   public HashMap<String,Buku> getBorrow(){
@@ -39,7 +41,7 @@ public class Pinjam{
   //method
   public void addBook(String isbn, Buku books) {
     this.borrow.put(isbn, books);
-    System.out.println("Buku " + borrow.get(isbn).getJudulBuku() + "Berhasil di tambahkan");
+    System.out.println("Buku " + borrow.get(isbn).getJudulBuku() + " || Berhasil di tambahkan");
     System.out.format ("%n============================================%n");
   }
 

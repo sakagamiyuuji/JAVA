@@ -7,7 +7,7 @@ public class Buku{
   private String penerbit;
   private String volume;
   private int stok;
-
+  private int bukuDiPinjam;
 
 
 	public String getJudulBuku() {
@@ -60,6 +60,17 @@ public class Buku{
 
   public void diPinjam() {
     this.stok--;
+  }
+
+  public int getBukuDiPinjam(){
+    return bukuDiPinjam;
+  }
+  public void setBukuDiPinjam(){
+    this.bukuDiPinjam = bukuDiPinjam;
+  }
+
+  public void jumlahPinjam(){
+    bukuDiPinjam++;
   }
 
 	public Buku(String judulBuku, String ISBN, String penulis, String penerbit, String volume, int stok) {

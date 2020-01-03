@@ -5,7 +5,8 @@ public class Buku{
   private String ISBN;
   private String penulis;
   private String penerbit;
-  private String halamanBuku;
+  private String volume;
+  private int stok;
 
 
 
@@ -41,29 +42,32 @@ public class Buku{
 		this.penerbit = penerbit;
 	}
 
-	public String getHalamanBuku() {
-		return halamanBuku;
+	public String getVolume() {
+		return volume;
 	}
 
-	public void setHalamanBuku(String halamanBuku) {
-		this.halamanBuku = halamanBuku;
+	public void setVolume(String volume) {
+		this.volume = volume;
 	}
 
-	/**
-	* Default empty Buku constructor
-	*/
-	public Buku() {
-		super();
-	}
+  public int getStok() {
+    return stok;
+  }
 
-	/**
-	* Default Buku constructor
-	*/
-	public Buku(String judulBuku, String ISBN, String penulis, String penerbit, String halamanBuku) {
+  public void setStok(int stok) {
+    this.stok = stok;
+  }
+
+  public void diPinjam() {
+    this.stok--;
+  }
+
+	public Buku(String judulBuku, String ISBN, String penulis, String penerbit, String volume, int stok) {
 		this.judulBuku = judulBuku;
 		this.ISBN = ISBN;
 		this.penulis = penulis;
 		this.penerbit = penerbit;
-		this.halamanBuku = halamanBuku;
+		this.volume = volume;
+    this.stok = stok;
 	}
 }

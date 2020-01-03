@@ -42,7 +42,7 @@ public class Pinjam{
   public void addBook(String isbn, Buku books) {
     this.borrow.put(isbn, books);
     System.out.println("Buku " + borrow.get(isbn).getJudulBuku() + " || Berhasil di tambahkan");
-    System.out.format ("%n============================================%n");
+    System.out.format ("%n=================================================%n");
   }
 
   public Buku getBook(String isbn){

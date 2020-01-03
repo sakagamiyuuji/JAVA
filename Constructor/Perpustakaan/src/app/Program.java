@@ -62,27 +62,39 @@ public class Program{
     //System.out.println(transaction.getKodeTrans());
 
     boolean runPinjam = true;
-
+    boolean masihIngin = true;
     while(runPinjam){
       System.out.print("Masukan kode ISBN buku yang ingin anda pinjam = ");
       String isbn = input.nextLine();
 
       if(lemariBuku.containsKey(isbn)){
-        System.out.println("BUKU ADA");
+        System.out.format("%n================================================%nBUKU ADA%n");
         Buku meminjamBuku = lemariBuku.get(isbn);
         meminjamBuku.diPinjam();
         transaction.addBook(isbn, meminjamBuku);
         lemariBuku.get(isbn).jumlahPinjam();
         lemariBuku.get(isbn).diPinjam();
+        masihIngin = true;
       }
       else{
         System.out.println("BUKU TIDAK ADA");
+        masihIngin = true;
       }
 
+      while (masihIngin){
       System.out.println("Apakah anda masih ingin meminjam Buku? [Y/N]");
       String answer = input.nextLine();
       if(answer.equalsIgnoreCase("n")){
         runPinjam = false;
+        masihIngin = false;
+      }
+      else if(answer.equalsIgnoreCase("y")){
+        runPinjam = true;
+        masihIngin = false;
+      }
+      else{
+        System.out.println("INPUT YANG ANDA MASUKAN SALAH");
+      }
       }
     }
 
@@ -117,7 +129,7 @@ public class Program{
         String answer1 = input.nextLine();
         if(answer1.equalsIgnoreCase("Y")){
             daftarTransaksi.put(transaction.getKodeTrans(), transaction);
-            System.out.println("Buku telah di pinjam oleh");
+            System.out.println("Buku berhasil di pinjam oleh");
 
               String idMember = daftarMember.get(who).getIdMember();
               String namaMember = daftarMember.get(who).getNamaMember();
@@ -129,12 +141,12 @@ public class Program{
               System.out.println("Nama Member = " +namaMember);
               System.out.println("Umur        = "+ umur);
               System.out.println("Nickname    = " +nickname);
-              System.out.format("%n%n");
+              System.out.format("%nTERIMA KASIH TELAH MENGUNJUNGI PERPUSTAKAAN KAMI%n");
+              System.out.println(transaction.getKodeTrans());
 
         }
         else{
             System.out.println("Transaksi di batalkan");
-            System.out.println(transaction.getKodeTrans());
         }
       }
 
